@@ -113,7 +113,7 @@ function Get-RegistryTags {
         $packageName = $Matches[2]
 
         # Use GitHub API for GHCR
-        $ghcrUri = "https://api.github.com/orgs/$owner/packages/container/$packageName/versions?per_page=100"
+        $ghcrUri = https://api.github.com/users/$owner/packages/container/$packageName/versions?per_page=100
         Write-HostWithPrefix "Querying GitHub Container Registry API: $ghcrUri"
 
         $headers = @{
