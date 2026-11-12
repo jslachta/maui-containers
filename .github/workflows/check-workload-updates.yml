@@ -196,7 +196,7 @@ jobs:
   trigger-build-tart:
     name: 🚀 Trigger Tart VM Builds
     needs: check-updates
-    if: needs.check-updates.outputs.trigger-builds == 'true'
+    if: false  # fork: no self-hosted macOS runner
     runs-on: ubuntu-latest
     strategy:
       matrix:
