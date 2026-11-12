@@ -17,9 +17,9 @@ on:
         type: boolean
 
 env:
-  DOCKER_REPOSITORY_LINUX: ghcr.io/maui-containers/maui-linux
-  DOCKER_REPOSITORY_WINDOWS: ghcr.io/maui-containers/maui-windows
-  DOCKER_REPOSITORY_TEST: ghcr.io/maui-containers/maui-emulator-linux
+  DOCKER_REPOSITORY_LINUX: ghcr.io/${{ github.repository_owner }}/maui-linux
+  DOCKER_REPOSITORY_WINDOWS: ghcr.io/${{ github.repository_owner }}/maui-windows
+  DOCKER_REPOSITORY_TEST: ghcr.io/${{ github.repository_owner }}/maui-emulator-linux
 
 jobs:
   check-updates:
@@ -196,7 +196,7 @@ jobs:
   trigger-build-tart:
     name: 🚀 Trigger Tart VM Builds
     needs: check-updates
-    if: needs.check-updates.outputs.trigger-builds == 'true'
+    if: false  # fork: no self-hosted macOS runner
     runs-on: ubuntu-latest
     strategy:
       matrix:
